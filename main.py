@@ -6,6 +6,11 @@ class Client(commands.Bot):
     async def on_ready(self):
         print(f'Logged on as {self.user}!')
 
+# Set the bot's activity (bio)
+        activity = discord.Activity(type=discord.ActivityType.watching, name="over the TFT realm")
+        await self.change_presence(activity=activity)
+
+
         try:
             guild = discord.Object(id=808787224421204029)
             synced = await self.tree.sync(guild=guild)
